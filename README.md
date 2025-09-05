@@ -2,6 +2,10 @@
 
 An autonomous story agent that turns any idea into illustrated stories. Real multi-image consistency.
 
+
+https://github.com/user-attachments/assets/2a6761a2-9535-48e7-b854-d0a6b2246d30
+
+
 ## What It Actually Does
 
 - Feed it any topic → get a complete illustrated story
