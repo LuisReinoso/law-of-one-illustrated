@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Story Gallery - Claude's Bananas Story Agent</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/css/page-flip.css">
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            background: url('frontend-background.png') center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #2D5A3D, #4A7C5A);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #5A7A6A;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            margin-top: 1rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #4A7C5A, #6FA477);
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 124, 90, 0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .story-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .story-cover {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(45deg, #E8F5F1, #D4E8DC);
+        }
+
+        .story-info {
+            padding: 1.5rem;
+        }
+
+        .story-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2D5A3D;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-meta {
+            font-size: 0.9rem;
+            color: #6A8A7A;
+            margin-bottom: 1rem;
+        }
+
+        .view-btn {
+            background: linear-gradient(135deg, #4A7C5A, #6FA477);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Comfortaa', cursive;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 124, 90, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 20px;
+            padding: 1rem;
+            width: 90vw;
+            height: 85vh;
+            max-width: 1400px;
+            max-height: 900px;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        #book {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        /* Left page - Image only */
+        .image-page {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f8f8;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-page img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* Right page - Text only */
+        .text-page {
+            width: 100%;
+            height: 100%;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: 'Crimson Text', serif;
+            background: #fefefe;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-page h3 {
+            color: #2D5A3D;
+            margin-bottom: 2rem;
+            font-size: 1.6rem;
+            text-align: center;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .text-page p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        /* Cover page styling */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .cover-page img {
+            max-width: 80%;
+            max-height: 60%;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .cover-page h2 {
+            color: #2D5A3D;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-family: 'Comfortaa', cursive;
+        }
+
+        .cover-page .author {
+            color: #6A8A7A;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .page-info {
+            text-align: center;
+            color: #6A8A7A;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .modal-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-shrink: 0;
+        }
+
+        .control-btn {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #4A7C5A, #6FA477);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Comfortaa', cursive;
+            transition: all 0.3s ease;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 124, 90, 0.3);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #6A8A7A;
+        }
+
+        @media (max-width: 768px) {
+            .title { font-size: 2rem; }
+            .gallery { grid-template-columns: 1fr; }
+            .modal-content { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">📚 Story Gallery</h1>
+            <p class="subtitle">Browse and read all your beautiful illustrated stories</p>
+            <div class="nav-links">
+                <a href="/" class="nav-link">🍌 Create New Story</a>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            🔄 Loading your story collection...
+        </div>
+
+        <div id="gallery" class="gallery" style="display: none;">
+            <!-- Stories will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Modal for viewing stories -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Story Title</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="book"></div>
+            <div class="modal-controls">
+                <button class="control-btn" onclick="prevPage()" id="prevBtn">← Previous</button>
+                <button class="control-btn" onclick="nextPage()" id="nextBtn">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStory = null;
+        let currentPageIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGallery();
+        });
+
+        async function loadGallery() {
+            try {
+                const response = await fetch('/stories');
+                const data = await response.json();
+                const stories = data.stories || [];
+
+                const loadingEl = document.getElementById('loading');
+                const galleryEl = document.getElementById('gallery');
+                
+                if (loadingEl) loadingEl.style.display = 'none';
+                if (galleryEl) galleryEl.style.display = 'grid';
+
+                if (stories.length === 0) {
+                    if (galleryEl) galleryEl.innerHTML = '<div class="loading">No stories found. Create your first story!</div>';
+                    return;
+                }
+
+                if (galleryEl) {
+                    galleryEl.innerHTML = '';
+                    stories.forEach(story => {
+                        const card = createStoryCard(story);
+                        galleryEl.appendChild(card);
+                    });
+                }
+
+            } catch (error) {
+                const loadingEl = document.getElementById('loading');
+                if (loadingEl) loadingEl.textContent = 'Error loading stories: ' + error.message;
+            }
+        }
+
+        function createStoryCard(story) {
+            const card = document.createElement('div');
+            card.className = 'story-card';
+            
+            const date = new Date(story.created * 1000).toLocaleDateString();
+            
+            card.innerHTML = `
+                <img class="story-cover" src="/stories/${story.name}/images/page_00_title.jpeg" 
+                     onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0U4RjVGMSIvPjx0ZXh0IHg9IjE1MCIgeT0iMTAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQ29tZm9ydGFhIiBmb250LXNpemU9IjE0IiBmaWxsPSIjNkE4QTdBIj7wn5OKIE5vIENvdmVyPC90ZXh0Pjwvc3ZnPg=='">
+                <div class="story-info">
+                    <div class="story-title">${story.title}</div>
+                    <div class="story-meta">Created: ${date}</div>
+                    <button class="view-btn" onclick="viewStory('${story.name}')">
+                        📖 Read Story
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        async function viewStory(storyName) {
+            try {
+                const response = await fetch(`/stories/${storyName}/story_data.json`);
+                const storyData = await response.json();
+                
+                currentStory = storyData;
+                
+                const modalTitle = document.getElementById('modalTitle');
+                const modal = document.getElementById('storyModal');
+                
+                if (modalTitle) modalTitle.textContent = storyData.title || storyName;
+                if (modal) modal.style.display = 'block';
+                
+                createPageFlipBook(storyData, storyName);
+                
+            } catch (error) {
+                alert('Error loading story: ' + error.message);
+            }
+        }
+
+        function createPageFlipBook(storyData, storyName) {
+            const bookContainer = document.getElementById('book');
+            if (!bookContainer) return;
+            
+            // Clear completely and create fresh book element
+            bookContainer.innerHTML = '<div id="freshBook"></div>';
+            const bookEl = document.getElementById('freshBook');
+            
+            // Create pageFlip fresh - no state management
+            const pageFlip = new St.PageFlip(bookEl, {
+                width: 1200,
+                height: 800,
+                size: 'stretch',
+                showCover: true,
+                mobileScrollSupport: true,
+                drawShadow: true,
+                flippingTime: 600,
+                usePortrait: false
+            });
+
+            const pages = storyData.pages || [];
+            const pageElements = [];
+            
+            // Create cover page
+            if (pages.length > 0) {
+                const coverPage = document.createElement('div');
+                coverPage.className = 'cover-page';
+                
+                const coverImagePath = pages[0].image_local || pages[0].image_url;
+                let coverImageUrl = '';
+                if (coverImagePath && coverImagePath.includes('stories/')) {
+                    const parts = coverImagePath.split('/');
+                    const fileName = parts[parts.length - 1];
+                    coverImageUrl = `/stories/${storyName}/images/${fileName}`;
+                } else if (coverImagePath) {
+                    coverImageUrl = coverImagePath;
+                }
+                
+                console.log('Cover image URL:', coverImageUrl);
+                
+                coverPage.innerHTML = `
+                    <img src="${coverImageUrl}" alt="Cover">
+                    <h2>${storyData.title || 'Story Title'}</h2>
+                    <div class="author">by Claude's Bananas Story Agent</div>
+                `;
+                
+                pageElements.push(coverPage);
+            }
+            
+            // Create story pages as separate left (image) and right (text) pages
+            for (let i = 1; i < pages.length; i++) {
+                const page = pages[i];
+                
+                // Left page - Image
+                const imagePage = document.createElement('div');
+                imagePage.className = 'image-page';
+                
+                const imagePath = page.image_local || page.image_url;
+                let imageUrl = '';
+                if (imagePath && imagePath.includes('stories/')) {
+                    const parts = imagePath.split('/');
+                    const fileName = parts[parts.length - 1];
+                    imageUrl = `/stories/${storyName}/images/${fileName}`;
+                } else if (imagePath) {
+                    imageUrl = imagePath;
+                }
+                
+                console.log(`Page ${i} image URL:`, imageUrl);
+                
+                imagePage.innerHTML = `<img src="${imageUrl}" alt="Page ${i}">`;
+                pageElements.push(imagePage);
+                
+                // Right page - Text
+                const textPage = document.createElement('div');
+                textPage.className = 'text-page';
+                
+                textPage.innerHTML = `
+                    <h3>Page ${i}</h3>
+                    <p>${page.text || 'No text available'}</p>
+                `;
+                pageElements.push(textPage);
+            }
+
+            if (pageElements.length > 0) {
+                pageFlip.loadFromHTML(pageElements);
+                // Store reference for navigation
+                bookEl.pageFlipInstance = pageFlip;
+            }
+        }
+
+        function prevPage() {
+            const freshBook = document.getElementById('freshBook');
+            if (freshBook && freshBook.pageFlipInstance) {
+                freshBook.pageFlipInstance.flipPrev();
+            }
+        }
+
+        function nextPage() {
+            const freshBook = document.getElementById('freshBook');
+            if (freshBook && freshBook.pageFlipInstance) {
+                freshBook.pageFlipInstance.flipNext();
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('storyModal');
+            if (modal) modal.style.display = 'none';
+            
+            // Just clear everything - no complex state management
+            const bookEl = document.getElementById('book');
+            if (bookEl) {
+                bookEl.innerHTML = '';
+            }
+            
+            currentStory = null;
+            currentPageIndex = 0;
+        }
+
+        // Close modal on background click
+        const modal = document.getElementById('storyModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('storyModal');
+            if (modal && modal.style.display === 'block') {
+                if (e.key === 'ArrowRight' || e.key === ' ') {
+                    e.preventDefault();
+                    nextPage();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevPage();
+                } else if (e.key === 'Escape') {
+                    closeModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

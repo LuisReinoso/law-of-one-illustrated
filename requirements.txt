@@ -1,0 +1,26 @@
+# Claude Code SDK Storybook Creator Dependencies
+
+# Core SDK for story agent orchestration
+claude-code-sdk>=0.0.20
+
+# Environment variable loading from .env files
+python-dotenv>=1.0.0
+
+# MCP Server Framework and FAL client
+fastmcp>=2.12.0
+fal-client>=0.7.0
+
+# PDF generation and image processing
+reportlab>=4.4.0
+pillow>=11.0.0
+requests>=2.32.0
+
+# Web frontend for story creation
+fastapi>=0.115.0
+uvicorn>=0.32.0
+
+# Legacy dependencies (can be removed if not needed)
+httpx>=0.28.0
+
+# Standard library imports (no additional packages needed):
+# - asyncio, os, json, time, pathlib, typing, sys, re

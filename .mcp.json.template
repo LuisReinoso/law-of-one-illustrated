@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "nano_banana_tools": {
+      "command": "python3",
+      "args": ["mcp_servers/nano_banana_mcp.py", "stdio"],
+      "env": {
+        "PYTHONUNBUFFERED": "1",
+        "STORAGE_PATH": "./stories"
+      }
+    }
+  }
+}
