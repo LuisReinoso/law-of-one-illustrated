@@ -9,16 +9,34 @@ import subprocess
 import threading
 import webbrowser
 import time
+import re
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
 
 app = FastAPI()
 
 class StoryRequest(BaseModel):
     topic: str
+
+    @field_validator('topic')
+    @classmethod
+    def validate_topic(cls, v: str) -> str:
+        """Validate and sanitize topic input"""
+        if not v or not v.strip():
+            raise ValueError("Topic cannot be empty")
+
+        # Remove any potentially dangerous characters
+        if any(char in v for char in [';', '|', '&', '$', '`', '\n', '\r']):
+            raise ValueError("Topic contains invalid characters")
+
+        # Limit length to prevent abuse
+        if len(v) > 500:
+            raise ValueError("Topic must be less than 500 characters")
+
+        return v.strip()
 
 def run_story_generation(topic: str):
     """Run create_story.py in the parent directory"""
@@ -105,11 +123,40 @@ async def list_stories():
     stories.sort(key=lambda x: x["created"], reverse=True)
     return {"stories": stories}
 
+def validate_safe_path(path_component: str) -> str:
+    """Validate that path component doesn't contain directory traversal attempts"""
+    if not path_component or not path_component.strip():
+        raise HTTPException(status_code=400, detail="Invalid path")
+
+    # Block directory traversal attempts
+    if '..' in path_component or '/' in path_component or '\\' in path_component:
+        raise HTTPException(status_code=400, detail="Invalid path: directory traversal not allowed")
+
+    # Only allow alphanumeric, dash, underscore, dot (for extensions)
+    if not re.match(r'^[a-zA-Z0-9_\-\.]+$', path_component):
+        raise HTTPException(status_code=400, detail="Invalid characters in path")
+
+    return path_component
+
 @app.get("/stories/{story_name}/story_data.json")
 async def get_story_data(story_name: str):
     """Get story data JSON"""
     import json
+
+    # Validate and sanitize path
+    story_name = validate_safe_path(story_name)
+
     story_file = Path(__file__).parent.parent / "stories" / story_name / "story_data.json"
+
+    # Additional safety: ensure resolved path is still within stories directory
+    stories_dir = Path(__file__).parent.parent / "stories"
+    try:
+        story_file = story_file.resolve()
+        if not story_file.is_relative_to(stories_dir):
+            raise HTTPException(status_code=403, detail="Access denied")
+    except (ValueError, RuntimeError):
+        raise HTTPException(status_code=403, detail="Access denied")
+
     if story_file.exists():
         with open(story_file, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -119,7 +166,22 @@ async def get_story_data(story_name: str):
 async def get_story_image(story_name: str, filename: str):
     """Serve story images"""
     from fastapi.responses import FileResponse
+
+    # Validate and sanitize paths
+    story_name = validate_safe_path(story_name)
+    filename = validate_safe_path(filename)
+
     image_file = Path(__file__).parent.parent / "stories" / story_name / "images" / filename
+
+    # Additional safety: ensure resolved path is still within stories directory
+    stories_dir = Path(__file__).parent.parent / "stories"
+    try:
+        image_file = image_file.resolve()
+        if not image_file.is_relative_to(stories_dir):
+            raise HTTPException(status_code=403, detail="Access denied")
+    except (ValueError, RuntimeError):
+        raise HTTPException(status_code=403, detail="Access denied")
+
     if image_file.exists():
         return FileResponse(image_file)
     return {"error": "Image not found"}
