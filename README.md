@@ -1,44 +1,22 @@
-# Claude's Bananas Story Agent 🍌
+# Law of One Illustrated 🌟
 
-An autonomous story agent that turns any idea into illustrated stories. Real multi-image consistency.
+Educational illustrated storybooks explaining Law of One concepts. Transform complex spiritual teachings from the Ra Material into easy-to-understand visual guides.
 
+## What It Does
 
-https://github.com/user-attachments/assets/2a6761a2-9535-48e7-b854-d0a6b2246d30
+- Converts Law of One concepts into illustrated educational storybooks
+- Each category (Densities, Energy Centers, Archetypical Mind, etc.) becomes a multi-page guide
+- Modern minimalist art style for clarity and spiritual aesthetic
+- Available in Spanish for wider accessibility
+- Generates PDF storybooks perfect for learning, practice, and teaching
 
+## Core Features
 
-## What It Actually Does
-
-- Feed it any topic → get a complete illustrated story
-- The agent figures out characters, scenes, and style on its own  
-- Every character looks the same across all pages (using Nano-Banana's multi-ref magic)
-- Watch the agent think, plan, and call tools in real-time
-- Outputs ready-to-read PDF + all the source files
-- **Beautiful web interface** for creating and viewing stories
-
-## How It Works
-
-Topic → Claude SDK agent reads custom prompt → orchestrates MCP tools → Nano-Banana generates images → local files + PDF
-
-The agent handles everything. You watch it work (or just wait for your story).
-
-## Two Ways to Use
-
-### 🖥️ Beautiful Web Interface (Recommended for Demos)
-```bash
-# Terminal 1: Start the gorgeous frontend
-cd frontend
-python app_simple.py
-# Opens browser at http://localhost:8080
-
-# Click "Create My Storybook", enter your idea, and watch the magic happen!
-# Stories appear in the gallery with page-flip animation
-```
-
-### ⚡ Pure Terminal (Fastest)
-```bash
-# Just run directly
-python create_story.py "detective cat solves art heist"
-```
+- **38+ Categories**: All major Law of One topics organized and illustrated
+- **Educational Focus**: Complex concepts broken down into digestible pages
+- **Visual Learning**: Illustrations enhance understanding of abstract spiritual ideas
+- **PDF Export**: Share and distribute educational materials
+- **Web Gallery**: Browse and view all generated storybooks
 
 ## Quick Start
 
@@ -47,92 +25,120 @@ python create_story.py "detective cat solves art heist"
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Clone and setup
-git clone <repo>
-cd cc-sdk-storybook
+git clone https://github.com/LuisReinoso/law-of-one-illustrated
+cd law-of-one-illustrated
 uv venv && source .venv/bin/activate
 uv pip install -r requirements.txt
 
-# Add your FAL key
+# Add your FAL key for image generation
 cp .env.example .env
 # Edit .env - add FAL_KEY from https://fal.ai
 
-# Copy MCP config (no editing needed)
+# Copy MCP config
 cp .mcp.json.template .mcp.json
 
-# Make a story
-python create_story.py "detective cat solves art heist"
+# Generate your first Law of One storybook
+python create_story.py "Las Siete Densidades de Consciencia"
 ```
 
-## Try These
+## Example Categories to Generate
 
-**Simple:**
+**Foundational Concepts:**
 ```bash
-python create_story.py "robot discovers emotions"
+python create_story.py "Las Densidades - Niveles de Consciencia"
+python create_story.py "Los Centros Energéticos - Chakras"
+python create_story.py "La Ley del Uno - Principio Fundamental"
 ```
 
-**Multiple characters with style:**
+**Advanced Topics:**
 ```bash
-python create_story.py "fox and owl solve mysteries in watercolor style"
-python create_story.py "three pirates find treasure, digital art, vibrant colors"
+python create_story.py "La Mente Arquetípica - Los Arquetipos"
+python create_story.py "El Tarot y los 22 Arquetipos"
+python create_story.py "Transferencia de Energía Sexual"
 ```
 
-**Specify length:**
+**Practical Teachings:**
 ```bash
-python create_story.py "space adventure, 10 pages"
-python create_story.py "dragon learns to fly, 5 page short story"
+python create_story.py "Balanceo y Sanación"
+python create_story.py "Meditación según Ra"
+python create_story.py "Servicio a Otros vs Servicio a Sí Mismo"
 ```
 
-**Go wild:**
+## Web Interface
+
 ```bash
-python create_story.py "philosophical zombies debate existence in a coffee shop, noir style, 7 pages"
+# Start the beautiful web interface
+cd frontend
+python app_simple.py
+# Opens browser at http://localhost:8080
+
+# Create Law of One storybooks visually
+# Browse generated content in the gallery
+# View with page-flip animation
 ```
 
-**See everything:**
-```bash
-python create_story.py --debug "your story"  # Watch the agent think and work
-python create_story.py --verbose "your story"  # See tool calls as they happen
+## Output Structure
+
+```
+stories/las-densidades/
+├── story_data.json       # Complete storybook data
+├── storybook.pdf         # Ready to share/print
+└── images/               # All illustrations
+    ├── style_reference.jpeg
+    ├── page_01.jpeg
+    ├── page_02.jpeg
+    └── ...
 ```
 
-## You Get
+## Law of One Categories
 
-**Web Interface:**
-- 🎨 Ghibli-inspired design with floating animations
-- 📚 Beautiful gallery showing all your stories
-- 📖 Interactive page-flip book viewer
-- 🖱️ One-click story creation with preset examples
-- 📱 Responsive design works on all devices
+The system supports all major Ra Material categories:
 
-**File Output:**
-```
-stories/your-story/
-├── story_data.json    # The whole story
-├── storybook.pdf      # Ready to read
-└── images/            # All the art
-```
-
-## Frontend Features
-
-- **Preset Story Ideas**: Quick-start buttons with examples like "robot discovers emotions" 
-- **Real-time Progress**: Watch terminal output while enjoying the beautiful interface
-- **Story Gallery**: Browse all your created stories with cover images
-- **Page-flip Animation**: Smooth, realistic book reading experience
-- **Keyboard Navigation**: Use arrow keys to flip pages
-- **Demo Perfect**: Ideal for presentations and showcases
+- **Densities** (7 levels of consciousness)
+- **Energy Centers** (Chakras and energy work)
+- **Archetypical Mind** (22 Archetypes)
+- **Tarot** (Archetypal correspondences)
+- **Harvest** (Graduation to 4th density)
+- **Balancing & Healing**
+- **Meditation**
+- **Service to Others**
+- **The Two Paths** (STO vs STS)
+- **Cosmology** (Creation and intelligent infinity)
+- **Earth History** (Wanderers, Ra contact, pyramids)
+- And 25+ more categories
 
 ## Requirements
 
 - Python 3.11+
 - FAL API key from https://fal.ai
-- That's literally it
+- Basic understanding of Law of One material (recommended but not required)
 
-## Perfect for Demos
+## Purpose
 
-The web interface is designed for impressive demonstrations:
-1. Start the frontend (`python app_simple.py`)
-2. Keep the terminal visible to show the agent working
-3. Use preset buttons for quick story generation
-4. Stories automatically appear in the beautiful gallery
-5. Wow your audience with the page-flip viewer
+This tool helps:
+- **Learn**: Visual aids make complex concepts easier to grasp
+- **Practice**: Review and internalize Law of One teachings
+- **Teach**: Create educational materials to share with others
+- **Explore**: Discover connections between different concepts
+
+## Technical Foundation
+
+Built on the Claude Code SDK storybook framework with:
+- Autonomous AI agent for content structuring
+- Nano-Banana image generation for consistency
+- MCP tools for image generation and PDF creation
+- FastAPI web interface for easy access
+
+## Security
+
+This repository includes security hardening:
+- Input validation to prevent command injection
+- Path traversal protection for file serving
+- Safe subprocess handling
+- Sanitized user inputs
 
 ---
-Built with Claude Code SDK + Nano-Banana. The agent does the work, you get the story.
+
+**Note**: This is an educational tool for exploring Law of One concepts. For original source material, visit [lawofone.info](https://www.lawofone.info/)
+
+Based on the story generation framework with adaptations for spiritual/educational content.
