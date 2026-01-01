@@ -96,7 +96,7 @@ Begin with TodoWrite task creation and Step 0 - Intake.
         options = ClaudeCodeOptions(
             system_prompt=self.system_prompt,
             allowed_tools=[
-                "mcp__nano_banana_tools__generate_image",  # Now requires local_path 
+                "mcp__nano_banana_tools__generate_image",  # Now requires local_path
                 "mcp__nano_banana_tools__edit_image",      # Now requires local_path
                 "mcp__nano_banana_tools__save_story",
                 "mcp__nano_banana_tools__create_pdf",
@@ -104,7 +104,7 @@ Begin with TodoWrite task creation and Step 0 - Intake.
             ],
             disallowed_tools=[
                 "Read",
-                "Grep", 
+                "Grep",
                 "Task",
                 "Write",
                 "Glob",
@@ -113,7 +113,6 @@ Begin with TodoWrite task creation and Step 0 - Intake.
             mcp_servers=mcp_config_path,  # Use file path instead of dict
             cwd=self.project_root,
             max_turns=100,  # Increased for complex story workflows
-            max_thinking_tokens=10000,
             # Avoid interactive permission prompts that can stall headless runs
             permission_mode="bypassPermissions"
         )
