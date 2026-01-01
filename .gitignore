@@ -71,6 +71,7 @@ runs/
 !pyproject.toml
 !requirements.txt
 !.mcp.json.template
+!law_of_one_categories.json
 *.jpg
 *.jpeg
 *.png

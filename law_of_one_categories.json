@@ -1,0 +1,475 @@
+{
+  "metadata": {
+    "title": "Law of One / Ra Material Categories Database",
+    "source": "lawofone.info",
+    "description": "Comprehensive catalog of all Law of One topics from the Ra Material channeling (1981-1984)",
+    "total_categories": 39,
+    "language": "Spanish educational content generation",
+    "last_updated": "2025-12-31"
+  },
+  "categories": [
+    {
+      "id": "archetypical-mind",
+      "name_en": "Archetypical Mind",
+      "name_es": "La Mente Arquetípica",
+      "description_es": "Sistema de arquetipos como herramienta de enseñanza para comprender la mente profunda",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 10,
+      "key_concepts": ["22 arquetipos", "Mente/Cuerpo/Espíritu", "Patrones universales", "Tarot como mapa"]
+    },
+    {
+      "id": "balancing",
+      "name_en": "Balancing",
+      "name_es": "Balanceo",
+      "description_es": "Ejercicios y técnicas para equilibrar distorsiones energéticas y experiencias",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Ejercicios de balanceo", "Procesamiento de experiencias", "Catalizador", "Centros energéticos"]
+    },
+    {
+      "id": "before-the-veil",
+      "name_en": "Before the Veil",
+      "name_es": "Antes del Velo",
+      "description_es": "Condiciones de tercera densidad antes del Velo del Olvido",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 8,
+      "key_concepts": ["Velo del Olvido", "Tercera densidad original", "Libre albedrío", "Evolución consciente"]
+    },
+    {
+      "id": "confederation",
+      "name_en": "Confederation of Planets",
+      "name_es": "La Confederación de Planetas",
+      "description_es": "Alianza de civilizaciones de servicio-a-otros que asisten la evolución planetaria",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 10,
+      "key_concepts": ["Confederación", "Servicio a Otros", "Contacto ET", "Cuarentena de la Tierra"]
+    },
+    {
+      "id": "cosmology",
+      "name_en": "Cosmology",
+      "name_es": "Cosmología",
+      "description_es": "Estructura del universo según Ra: Logos, sub-Logos, y creación infinita",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 12,
+      "key_concepts": ["Logos", "Sub-Logos", "Creador Infinito", "Octavas de existencia"]
+    },
+    {
+      "id": "densities",
+      "name_en": "Densities",
+      "name_es": "Las Densidades",
+      "description_es": "Siete niveles de consciencia desde elementos hasta unidad total",
+      "subcategories": [
+        {
+          "id": "densities-general",
+          "name_es": "Densidades en General",
+          "description_es": "Visión general del sistema de siete densidades"
+        },
+        {
+          "id": "first-density",
+          "name_es": "Primera Densidad",
+          "description_es": "Elementos: tierra, aire, fuego, agua - consciencia formándose"
+        },
+        {
+          "id": "second-density",
+          "name_es": "Segunda Densidad",
+          "description_es": "Crecimiento: plantas y animales esforzándose hacia la luz"
+        },
+        {
+          "id": "third-density",
+          "name_es": "Tercera Densidad",
+          "description_es": "Elección: autoconciencia y selección del camino de servicio"
+        },
+        {
+          "id": "fourth-density",
+          "name_es": "Cuarta Densidad",
+          "description_es": "Amor/Comprensión: formación de complejos de memoria social"
+        },
+        {
+          "id": "fifth-density",
+          "name_es": "Quinta Densidad",
+          "description_es": "Luz/Sabiduría: equilibrio entre amor y sabiduría"
+        },
+        {
+          "id": "sixth-density",
+          "name_es": "Sexta Densidad",
+          "description_es": "Unidad: fusión de caminos positivo y negativo"
+        },
+        {
+          "id": "seventh-density",
+          "name_es": "Séptima Densidad",
+          "description_es": "Portal: umbral de retorno al Creador Infinito"
+        },
+        {
+          "id": "eighth-density",
+          "name_es": "Octava Densidad",
+          "description_es": "Primera densidad de la siguiente octava"
+        }
+      ],
+      "difficulty": "foundational",
+      "recommended_pages": 12,
+      "key_concepts": ["Siete densidades", "Evolución consciente", "Octava de experiencia", "Graduación"]
+    },
+    {
+      "id": "earth-history",
+      "name_en": "Earth History",
+      "name_es": "Historia de la Tierra",
+      "description_es": "Historia planetaria según Ra: Atlántida, Lemuria, antiguas civilizaciones",
+      "subcategories": [
+        "Atlántida", "Lemuria/Mu", "Egipto", "Sudamérica", "Mesopotamia", "Civilizaciones antiguas"
+      ],
+      "difficulty": "intermediate",
+      "recommended_pages": 10,
+      "key_concepts": ["Atlántida", "Lemuria", "Contactos históricos de Ra", "Ciclos de 25,000 años"]
+    },
+    {
+      "id": "earth-present",
+      "name_en": "Earth Present",
+      "name_es": "Tierra Presente",
+      "description_es": "Situación actual de la Tierra y la transición de tercera a cuarta densidad",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Cosecha actual", "Transición 3D-4D", "Doble activación corporal", "Situación planetaria"]
+    },
+    {
+      "id": "energy-centers",
+      "name_en": "Energy Centers",
+      "name_es": "Centros de Energía",
+      "description_es": "Sistema de chakras según Ra: siete centros energéticos del complejo mente/cuerpo/espíritu",
+      "subcategories": [
+        {
+          "id": "red-ray",
+          "name_es": "Rayo Rojo (Base)",
+          "description_es": "Supervivencia, vitalidad, fundamento"
+        },
+        {
+          "id": "orange-ray",
+          "name_es": "Rayo Naranja (Sacro)",
+          "description_es": "Relaciones personales, sexualidad, poder personal"
+        },
+        {
+          "id": "yellow-ray",
+          "name_es": "Rayo Amarillo (Plexo Solar)",
+          "description_es": "Grupos, sociedad, identidad de grupo"
+        },
+        {
+          "id": "green-ray",
+          "name_es": "Rayo Verde (Corazón)",
+          "description_es": "Amor universal, compasión, sanación"
+        },
+        {
+          "id": "blue-ray",
+          "name_es": "Rayo Azul (Garganta)",
+          "description_es": "Comunicación, expresión honesta, sabiduría"
+        },
+        {
+          "id": "indigo-ray",
+          "name_es": "Rayo Índigo (Tercer Ojo)",
+          "description_es": "Trabajo inteligente en infinidad, visión espiritual"
+        },
+        {
+          "id": "violet-ray",
+          "name_es": "Rayo Violeta (Corona)",
+          "description_es": "Totalidad del complejo mente/cuerpo/espíritu"
+        }
+      ],
+      "difficulty": "intermediate",
+      "recommended_pages": 10,
+      "key_concepts": ["Chakras", "Rayos de energía", "Bloqueos", "Activación", "Transferencia energética"]
+    },
+    {
+      "id": "harvest",
+      "name_en": "Harvest",
+      "name_es": "La Cosecha",
+      "description_es": "Graduación de tercera a cuarta densidad basada en polarización",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 10,
+      "key_concepts": ["Cosecha", "Graduación", "Polarización", "Ciclos de 75,000 años", "Requisitos de cosecha"]
+    },
+    {
+      "id": "healing",
+      "name_en": "Healing",
+      "name_es": "Sanación",
+      "description_es": "Métodos de sanación según Ra: cristales, contacto, energía",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Sanación espiritual", "Cristales", "Imposición de manos", "Catalizador de sanación"]
+    },
+    {
+      "id": "higher-self",
+      "name_en": "Higher Self",
+      "name_es": "El Yo Superior",
+      "description_es": "El yo de sexta densidad que guía el complejo mente/cuerpo/espíritu",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Yo Superior", "Guía desde sexta densidad", "Tiempo/Espacio", "Conexión con el futuro yo"]
+    },
+    {
+      "id": "law-of-one",
+      "name_en": "Law of One",
+      "name_es": "La Ley del Uno",
+      "description_es": "Principio fundamental: todas las cosas son Una, todo es el Creador",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 8,
+      "key_concepts": ["Unidad", "Todas las cosas son Una", "Creador Infinito", "No separación"]
+    },
+    {
+      "id": "meditation",
+      "name_en": "Meditation",
+      "name_es": "Meditación",
+      "description_es": "Práctica de meditación según Ra para contacto con infinito inteligente",
+      "subcategories": [],
+      "difficulty": "beginner",
+      "recommended_pages": 6,
+      "key_concepts": ["Meditación", "Silencio interior", "Contacto con infinito inteligente", "Práctica diaria"]
+    },
+    {
+      "id": "negative-path",
+      "name_en": "Negative Path",
+      "name_es": "El Camino Negativo",
+      "description_es": "Servicio-a-Sí-Mismo: camino de separación y control (requiere 95% polarización)",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 10,
+      "key_concepts": ["Servicio a Sí Mismo", "95% polarización", "Separación", "Control", "Camino negativo válido"]
+    },
+    {
+      "id": "orion",
+      "name_en": "Orion",
+      "name_es": "Orión",
+      "description_es": "Grupo de Orión: confederación de servicio-a-sí-mismo",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Grupo de Orión", "Camino negativo organizado", "Cruzada de Orión", "Contacto negativo"]
+    },
+    {
+      "id": "positive-path",
+      "name_en": "Positive Path",
+      "name_es": "El Camino Positivo",
+      "description_es": "Servicio-a-Otros: camino de unidad y servicio (requiere 51% polarización)",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 8,
+      "key_concepts": ["Servicio a Otros", "51% polarización", "Amor incondicional", "Unidad", "Compasión"]
+    },
+    {
+      "id": "pyramids",
+      "name_en": "Pyramids",
+      "name_es": "Las Pirámides",
+      "description_es": "Propósito y construcción de pirámides según Ra",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Pirámides de Egipto", "Sanación", "Iniciación", "Construcción por pensamiento"]
+    },
+    {
+      "id": "ra",
+      "name_en": "Ra",
+      "name_es": "Ra",
+      "description_es": "Quién es Ra: complejo de memoria social de sexta densidad de Venus",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 6,
+      "key_concepts": ["Ra", "Sexta densidad", "Venus", "Complejo de memoria social", "Mensajeros humildes"]
+    },
+    {
+      "id": "ra-contact",
+      "name_en": "Ra Contact",
+      "name_es": "El Contacto con Ra",
+      "description_es": "Cómo ocurrieron las sesiones de canalización (1981-1984)",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 8,
+      "key_concepts": ["Canalización", "Carla Rueckert", "Don Elkins", "Jim McCarty", "106 sesiones"]
+    },
+    {
+      "id": "service-to-others",
+      "name_en": "Service to Others",
+      "name_es": "Servicio a Otros",
+      "description_es": "Camino positivo de servicio y unidad con el Creador",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 8,
+      "key_concepts": ["STO", "51% dedicación", "Amor incondicional", "Servir sin expectativas"]
+    },
+    {
+      "id": "sexual-energy-transfer",
+      "name_en": "Sexual Energy Transfer",
+      "name_es": "Transferencia de Energía Sexual",
+      "description_es": "Transferencia energética a través de la actividad sexual",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 8,
+      "key_concepts": ["Energía sexual", "Rayo verde", "Transferencia de rayos", "Magia sexual"]
+    },
+    {
+      "id": "social-memory-complex",
+      "name_en": "Social Memory Complex",
+      "name_es": "Complejo de Memoria Social",
+      "description_es": "Consciencia grupal unificada de cuarta densidad en adelante",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Complejo de memoria social", "Consciencia grupal", "Cuarta densidad", "Unificación mental"]
+    },
+    {
+      "id": "tarot",
+      "name_en": "Tarot",
+      "name_es": "El Tarot",
+      "description_es": "22 Arquetipos del Tarot como herramienta para estudiar la mente arquetípica",
+      "subcategories": [
+        {
+          "id": "mind-archetypes",
+          "name_es": "Arquetipos de la Mente (7)",
+          "cards": ["Mago", "Sacerdotisa", "Emperatriz", "Emperador", "Hierofante", "Amantes", "Carro"]
+        },
+        {
+          "id": "body-archetypes",
+          "name_es": "Arquetipos del Cuerpo (7)",
+          "cards": ["Equilibrio", "Ermitaño", "Rueda de la Fortuna", "Persuasor", "Colgado", "Muerte", "Templanza"]
+        },
+        {
+          "id": "spirit-archetypes",
+          "name_es": "Arquetipos del Espíritu (7)",
+          "cards": ["Diablo", "Torre", "Estrella", "Luna", "Sol", "Juicio", "Mundo"]
+        },
+        {
+          "id": "choice",
+          "name_es": "La Elección (Loco)",
+          "description_es": "Arquetipo del libre albedrío"
+        }
+      ],
+      "difficulty": "advanced",
+      "recommended_pages": 12,
+      "key_concepts": ["22 Arquetipos", "Mente/Cuerpo/Espíritu", "Libre albedrío", "Estudio profundo"]
+    },
+    {
+      "id": "teach-learning",
+      "name_en": "Teach/Learning",
+      "name_es": "Enseñar/Aprender",
+      "description_es": "Concepto de Ra: todo enseñar es aprender, todo aprender es enseñar",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 6,
+      "key_concepts": ["Enseñar/Aprender", "Aprender/Enseñar", "Unidad del conocimiento", "Catalizador"]
+    },
+    {
+      "id": "the-original-thought",
+      "name_en": "The Original Thought",
+      "name_es": "El Pensamiento Original",
+      "description_es": "Primer pensamiento del Creador: conocerse a Sí Mismo",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 6,
+      "key_concepts": ["Pensamiento Original", "Logos", "Amor", "Libre albedrío"]
+    },
+    {
+      "id": "the-two-paths",
+      "name_en": "The Two Paths",
+      "name_es": "Los Dos Caminos",
+      "description_es": "Servicio-a-Otros vs Servicio-a-Sí-Mismo: las dos vías de evolución",
+      "subcategories": [],
+      "difficulty": "foundational",
+      "recommended_pages": 10,
+      "key_concepts": ["STO vs STS", "Polarización", "51% vs 95%", "Ambos caminos válidos", "Convergencia en sexta"]
+    },
+    {
+      "id": "time-space",
+      "name_en": "Time/Space",
+      "name_es": "Tiempo/Espacio",
+      "description_es": "Dimensión metafísica complementaria a espacio/tiempo",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 8,
+      "key_concepts": ["Tiempo/Espacio", "Espacio/Tiempo", "Planos internos", "Vida entre vidas"]
+    },
+    {
+      "id": "ufos",
+      "name_en": "UFOs",
+      "name_es": "OVNIs",
+      "description_es": "Fenómenos OVNI y contacto extraterrestre según Ra",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["OVNIs", "Contacto extraterrestre", "Formas-pensamiento", "Cuarentena"]
+    },
+    {
+      "id": "veil-of-forgetting",
+      "name_en": "Veil of Forgetting",
+      "name_es": "El Velo del Olvido",
+      "description_es": "Separación entre mente consciente e inconsciente para intensificar elecciones",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Velo del Olvido", "Tercera densidad", "Libre albedrío", "Catalizador intensificado"]
+    },
+    {
+      "id": "wanderers",
+      "name_en": "Wanderers",
+      "name_es": "Los Errantes",
+      "description_es": "Seres de densidades superiores que se encarnan voluntariamente en tercera densidad",
+      "subcategories": [],
+      "difficulty": "intermediate",
+      "recommended_pages": 8,
+      "key_concepts": ["Errantes", "Voluntarios", "Cuarta/Quinta/Sexta densidad", "Servicio planetario", "Riesgos"]
+    },
+    {
+      "id": "white-magic",
+      "name_en": "White Magic",
+      "name_es": "Magia Blanca",
+      "description_es": "Trabajo consciente con energía inteligente para servicio positivo",
+      "subcategories": [],
+      "difficulty": "advanced",
+      "recommended_pages": 8,
+      "key_concepts": ["Magia blanca", "Trabajo en consciencia", "Invocación", "Servicio"]
+    }
+  ],
+  "learning_paths": {
+    "beginner": {
+      "name_es": "Camino para Principiantes",
+      "recommended_order": [
+        "law-of-one",
+        "ra",
+        "ra-contact",
+        "densities",
+        "the-two-paths",
+        "harvest",
+        "meditation"
+      ]
+    },
+    "intermediate": {
+      "name_es": "Camino Intermedio",
+      "recommended_order": [
+        "energy-centers",
+        "positive-path",
+        "service-to-others",
+        "wanderers",
+        "higher-self",
+        "balancing",
+        "veil-of-forgetting"
+      ]
+    },
+    "advanced": {
+      "name_es": "Camino Avanzado",
+      "recommended_order": [
+        "archetypical-mind",
+        "tarot",
+        "cosmology",
+        "time-space",
+        "sexual-energy-transfer",
+        "white-magic",
+        "the-original-thought"
+      ]
+    }
+  }
+}
